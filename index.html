@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iceland RP | Майнкрафт Сервер</title>
+    <style>
+        :root {
+            --primary: #002855; 
+            --accent: #D72638;  
+            --light: #F4F7F6;   
+            --dark: #1A202C;
+            --discord: #5865F2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: var(--dark);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .user-panel {
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .login-btn {
+            background-color: var(--discord);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .login-btn:hover { opacity: 0.9; }
+
+        .logout-btn {
+            background: none;
+            border: 1px solid #ffffff66;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn:hover { background-color: rgba(255,255,255,0.1); }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 3.2rem; letter-spacing: 2px; }
+        header p { margin: 0.5rem 0 0 0; font-size: 1.3rem; opacity: 0.9; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        
+        /* Уникальные цвета полосок для 7 разных идеологий */
+        .card.law { border-left-color: var(--accent); }
+        .card.id-1 { border-left-color: #002855; }
+        .card.id-2 { border-left-color: #00A896; }
+        .card.id-3 { border-left-color: #D72638; }
+        .card.id-4 { border-left-color: #F4A261; }
+        .card.id-5 { border-left-color: #9B51E0; }
+        .card.id-6 { border-left-color: #2D3748; }
+        .card.id-7 { border-left-color: #43A047; }
+
+        .discord-section {
+            text-align: center;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin: 3rem 0;
+        }
+
+        .discord-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: var(--discord);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+        }
+
+        .discord-link-btn:hover {
+            background-color: #4752C4;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
+        }
+        
+        footer { text-align: center; padding: 2rem; background-color: var(--dark); color: white; margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="user-panel" id="userPanel">
+            <button class="login-btn" onclick="loginSimulation()">🔷 Войти через Discord</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Iceland RP 🇮🇸</h1>
+        <p>Политический Майнкрафт сервер в суровых северных землях</p>
+    </header>
+
+    <div class="container">
+        
+        <h2>📜 Основные законы Сервера</h2>
+        <div class="grid">
+            <div class="card law">
+                <h3>🏛️ Выборы и власть</h3>
+                <p>Выборы Президента и Альтинга проходят каждые 2 недели. Вся власть у народа.</p>
+            </div>
+            <div class="card law">
+                <h3>⚖️ Правопорядок</h3>
+                <p>Гриферство и кражи разрешены, X-Ray разрешен. Выживает сильнейший!</p>
+            </div>
+        </div>
+
+        <h2>🏛️ Политические идеологии</h2>
+        <div class="grid">
+            
+            <div class="card id-1">
+                <h3>❄️ Консерватизм</h3>
+                <p>Сохранение культурных традиций Исландии, укрепление государственной армии и защита границ от чужеземцев.</p>
+            </div>
+
+            <div class="card id-2">
+                <h3>⚓ Либерализм</h3>
+                <p>Свободный рынок, развитие международной морской торговли, низкие налоги для купцов и свобода слова.</p>
+            </div>
+
+            <div class="card id-3">
+                <h3>🔥 Социализм</h3>
+                <p>Общее распределение добытых ресурсов, государственные шахты, бесплатная еда для новичков сервера.</p>
+            </div>
+
+            <div class="card id-4">
+                <h3>👑 Монархизм</h3>
+                <p>Вся власть принадлежит единственному Королю-Конунгу. Альтинг созывается только как советники правителя.</p>
+            </div>
+
+            <div class="card id-5">
+                <h3>🔮 Теократия</h3>
+                <p>Государство, управляемое Высшим Жрецом. Законы строятся на почитании древних скандинавских богов Асгарда.</p>
+            </div>
+
+            <div class="card id-6">
+                <h3>⛓️ Милитаризм</h3>
+                <p>Культ военной силы. Всё производство направлено на создание лучшей алмазной брони, оружия и захват новых земель.</p>
+            </div>
+
+            <div class="card id-7">
+                <h3>🌿 Экологизм</h3>
+                <p>Полный запрет на вырубку вековых лесов и порчу ландшафта карьерами. Развитие фермерства и защита природы.</p>
+            </div>
+
+        </div>
+
+        <div class="discord-section">
+            <h3>💬 Присоединяйся к нашему сообществу!</h3>
+            <p>Ищи союзников, создавай свои политические партии и кооперируйся в кланы.</p>
+            <a href="https://discord.gg" target="_blank" class="discord-link-btn">
+                <span>Наш сервер Discord</span>
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Iceland RP Minecraft Server. Все права защищены Альтингом.</p>
+    </footer>
+
+    <script>
+        let currentUser = JSON.parse(localStorage.getItem('iceland_user')) || null;
+
+        function updateUI() {
+            const userPanel = document.getElementById('userPanel');
+
+            if (currentUser) {
+                userPanel.innerHTML = `
+                    <div class="avatar">${currentUser.username.substring(0,2).toUpperCase()}</div>
+                    <span>${currentUser.username}</span>
+                    <button class="logout-btn" onclick="logout()">Выйти</button>
+                `;
+            } else {
+                userPanel.innerHTML = `<button class="login-btn" onclick="loginSimulation()">🔷 Войти через Discord</button>`;
+            }
+        }
+
+        function loginSimulation() {
+            const username = prompt("Введите ваш Discord никнейм для входа:", "Viking_Islander");
+            if (username) {
+                currentUser = { username: username };
+                localStorage.setItem('iceland_user', JSON.stringify(currentUser));
+                updateUI();
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('iceland_user');
+            updateUI();
+        }
+
+        updateUI();
+    </script>
+</body>
+</html>
